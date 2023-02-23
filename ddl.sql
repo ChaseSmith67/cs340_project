@@ -4,12 +4,19 @@
 -- Chase Smith
 -- -----------------------------------------------------
 
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `cs340_smitcha6`
+--
 
 -- --------------------------------------------------------
 
@@ -36,19 +43,19 @@ INSERT INTO `Actors` (`actor_id`, `first_name`, `last_name`, `actor_birth_date`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Age_Ratings`
+-- Table structure for table `AgeRatings`
 --
 
-CREATE TABLE `Age_Ratings` (
+CREATE TABLE `AgeRatings` (
   `age_rating_id` int(11) NOT NULL,
   `age_rating_description` varchar(145) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
--- Dumping data for table `Age_Ratings`
+-- Dumping data for table `AgeRatings`
 --
 
-INSERT INTO `Age_Ratings` (`age_rating_id`, `age_rating_description`) VALUES
+INSERT INTO `AgeRatings` (`age_rating_id`, `age_rating_description`) VALUES
 (4, 'Adults'),
 (1, 'All Ages'),
 (2, 'Older Children'),
@@ -250,9 +257,9 @@ ALTER TABLE `Actors`
   ADD UNIQUE KEY `actor_id_UNIQUE` (`actor_id`);
 
 --
--- Indexes for table `Age_Ratings`
+-- Indexes for table `AgeRatings`
 --
-ALTER TABLE `Age_Ratings`
+ALTER TABLE `AgeRatings`
   ADD PRIMARY KEY (`age_rating_id`),
   ADD UNIQUE KEY `age_rating_id_UNIQUE` (`age_rating_id`),
   ADD UNIQUE KEY `age_rating_description_UNIQUE` (`age_rating_description`);
@@ -357,31 +364,8 @@ ALTER TABLE `Users`
 ALTER TABLE `MovieActors`
   ADD CONSTRAINT `actor_id` FOREIGN KEY (`actor_id`) REFERENCES `Actors` (`actor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `MovieGenres`
---
-ALTER TABLE `MovieGenres`
-  ADD CONSTRAINT `genre_id` FOREIGN KEY (`genre_id`) REFERENCES `Genres` (`genre_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `MovieMoods`
---
-ALTER TABLE `MovieMoods`
-  ADD CONSTRAINT `mood_id` FOREIGN KEY (`mood_id`) REFERENCES `Moods` (`mood_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `Movies`
---
-ALTER TABLE `Movies`
-  ADD CONSTRAINT `age_rating` FOREIGN KEY (`age_rating_id`) REFERENCES `Age_Ratings` (`age_rating_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `UserMovies`
---
-ALTER TABLE `UserMovies`
-  ADD CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
