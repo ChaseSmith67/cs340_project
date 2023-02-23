@@ -105,15 +105,15 @@ INSERT INTO `Moods` (`mood_id`, `mood_name`) VALUES
 --
 
 CREATE TABLE `MovieActors` (
-  `movie_actor_movie_id` int(11) NOT NULL,
-  `movie_actor_actor_id` int(11) NOT NULL
+  `movie_id` int(11) NOT NULL,
+  `actor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- Dumping data for table `MovieActors`
 --
 
-INSERT INTO `MovieActors` (`movie_actor_movie_id`, `movie_actor_actor_id`) VALUES
+INSERT INTO `MovieActors` (`movie_id`, `actor_id`) VALUES
 (1, 1),
 (2, 1),
 (2, 2),
@@ -127,15 +127,15 @@ INSERT INTO `MovieActors` (`movie_actor_movie_id`, `movie_actor_actor_id`) VALUE
 --
 
 CREATE TABLE `MovieGenres` (
-  `movie_genre_movie_id` int(11) NOT NULL,
-  `movie_genre_genre_id` int(11) NOT NULL
+  `movie_id` int(11) NOT NULL,
+  `genre_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- Dumping data for table `MovieGenres`
 --
 
-INSERT INTO `MovieGenres` (`movie_genre_movie_id`, `movie_genre_genre_id`) VALUES
+INSERT INTO `MovieGenres` (`movie_id`, `genre_id`) VALUES
 (1, 3),
 (2, 2),
 (2, 3),
@@ -150,15 +150,15 @@ INSERT INTO `MovieGenres` (`movie_genre_movie_id`, `movie_genre_genre_id`) VALUE
 --
 
 CREATE TABLE `MovieMoods` (
-  `movie_mood_movie_id` int(11) NOT NULL,
-  `movie_mood_mood_id` int(11) NOT NULL
+  `movie_id` int(11) NOT NULL,
+  `mood_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- Dumping data for table `MovieMoods`
 --
 
-INSERT INTO `MovieMoods` (`movie_mood_movie_id`, `movie_mood_mood_id`) VALUES
+INSERT INTO `MovieMoods` (`movie_id`, `mood_id`) VALUES
 (1, 2),
 (1, 3),
 (2, 2),
@@ -198,15 +198,15 @@ INSERT INTO `Movies` (`movie_id`, `movie_title`, `movie_year`, `age_rating_id`) 
 --
 
 CREATE TABLE `UserMovies` (
-  `user_movie_movie_id` int(11) NOT NULL,
-  `user_movie_user_id` int(11) NOT NULL
+  `movie_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- Dumping data for table `UserMovies`
 --
 
-INSERT INTO `UserMovies` (`user_movie_movie_id`, `user_movie_user_id`) VALUES
+INSERT INTO `UserMovies` (`movie_id`, `user_id`) VALUES
 (3, 1),
 (3, 3),
 (4, 1),
@@ -275,22 +275,22 @@ ALTER TABLE `Moods`
 -- Indexes for table `MovieActors`
 --
 ALTER TABLE `MovieActors`
-  ADD KEY `movie_id_idx` (`movie_actor_movie_id`),
-  ADD KEY `actor_id_idx` (`movie_actor_actor_id`);
+  ADD KEY `movie_id_idx` (`movie_id`),
+  ADD KEY `actor_id_idx` (`actor_id`);
 
 --
 -- Indexes for table `MovieGenres`
 --
 ALTER TABLE `MovieGenres`
-  ADD KEY `movie_id_idx` (`movie_genre_movie_id`,`movie_genre_genre_id`),
-  ADD KEY `genre_id_idx` (`movie_genre_genre_id`);
+  ADD KEY `movie_id_idx` (`movie_id`,`genre_id`),
+  ADD KEY `genre_id_idx` (`genre_id`);
 
 --
 -- Indexes for table `MovieMoods`
 --
 ALTER TABLE `MovieMoods`
-  ADD KEY `movie_id_idx` (`movie_mood_movie_id`,`movie_mood_mood_id`),
-  ADD KEY `mood_id_idx` (`movie_mood_mood_id`);
+  ADD KEY `movie_id_idx` (`movie_id`,`mood_id`),
+  ADD KEY `mood_id_idx` (`mood_id`);
 
 --
 -- Indexes for table `Movies`
@@ -303,8 +303,8 @@ ALTER TABLE `Movies`
 -- Indexes for table `UserMovies`
 --
 ALTER TABLE `UserMovies`
-  ADD KEY `movie_id_idx` (`user_movie_movie_id`),
-  ADD KEY `user_id_idx` (`user_movie_user_id`);
+  ADD KEY `movie_id_idx` (`movie_id`),
+  ADD KEY `user_id_idx` (`user_id`);
 
 --
 -- Indexes for table `Users`
@@ -355,22 +355,22 @@ ALTER TABLE `Users`
 -- Constraints for table `MovieActors`
 --
 ALTER TABLE `MovieActors`
-  ADD CONSTRAINT `actor_id` FOREIGN KEY (`movie_actor_actor_id`) REFERENCES `Actors` (`actor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `movie_id` FOREIGN KEY (`movie_actor_movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `actor_id` FOREIGN KEY (`actor_id`) REFERENCES `Actors` (`actor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `MovieGenres`
 --
 ALTER TABLE `MovieGenres`
-  ADD CONSTRAINT `movie_genre_genre_id` FOREIGN KEY (`movie_genre_genre_id`) REFERENCES `Genres` (`genre_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `movie_genre_movie_id` FOREIGN KEY (`movie_genre_movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `genre_id` FOREIGN KEY (`genre_id`) REFERENCES `Genres` (`genre_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `MovieMoods`
 --
 ALTER TABLE `MovieMoods`
-  ADD CONSTRAINT `movie_mood_mood_id` FOREIGN KEY (`movie_mood_mood_id`) REFERENCES `Moods` (`mood_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `movie_mood_movie_id` FOREIGN KEY (`movie_mood_movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `mood_id` FOREIGN KEY (`mood_id`) REFERENCES `Moods` (`mood_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `Movies`
@@ -382,6 +382,6 @@ ALTER TABLE `Movies`
 -- Constraints for table `UserMovies`
 --
 ALTER TABLE `UserMovies`
-  ADD CONSTRAINT `user_movie_movie_id` FOREIGN KEY (`user_movie_movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_movie_user_id` FOREIGN KEY (`user_movie_user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `Movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
