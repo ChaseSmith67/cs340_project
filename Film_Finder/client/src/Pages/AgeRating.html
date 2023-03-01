@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<heading>
-    <title>Welcome to the Moods Page</title>
+<header>
+    <title>Welcome to the AgeRating Page</title>
     <style>
         /* Style to make it look somewhat decent */
         table,
@@ -36,14 +36,14 @@
             box-sizing: border-box;
         }
     </style>
-</heading>
+</header>
 
 <body>
 
     <nav>
         <ul style="margin: 0 auto;">
             <li><a href="Home.html">Home</a></li>
-            <li><a href="Actors.html">Actors</a></li>
+            <li><a href="Moods.html">Moods</a></li>
             <li><a href="Movies.html">Movies</a></li>
             <li><a href="Users.html">Users</a></li>
         </ul>
@@ -53,7 +53,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>MOOD</th>
+                <th>Age Rating</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -61,37 +61,49 @@
         <tbody>
             <tr>
                 <td>1</td>
-                <td>Funny</td>
+                <td>All Ages</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Dark</td>
+                <td>Older Children</td>
+
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>Intense</td>
+                <td>Teens</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
             <tr>
                 <td>4</td>
-                <td>Chill</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Sad</td>
+                <td>Adult</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>
 
-    <form action="process-moods.php" method="POST">
-        <label for="mood-id">ID:</label>
-        <input type="number" id="mood-id" name="mood-id" required>
+    <form action="process-age-ratings.php" method="POST">
+        <label for="ID"> ID:</label>
+        <input type="text" id="ID" name="ID" required>
         <br>
-        <label for="mood">Mood:</label>
-        <input type="text" id="mood" name="mood" required>
+        <label for="age-rating">Age Rating:</label>
+        <input type="text" id="age-rating" name="age-rating" required>
         <br>
-        <button type="submit">Add Mood</button>
+        <button type="submit">Add Age Rating</button>
     </form>
-
 </body>
 
 </html>

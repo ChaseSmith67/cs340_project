@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <heading>
-    <title>Welcome to the Moods Page</title>
+    <title>Welcome to the Genres Page</title>
     <style>
         /* Style to make it look somewhat decent */
         table,
@@ -53,7 +53,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>MOOD</th>
+                <th>Genre</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -61,35 +61,35 @@
         <tbody>
             <tr>
                 <td>1</td>
-                <td>Funny</td>
+                <td>Comedy</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Dark</td>
+                <td>Science Fiction</td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>Intense</td>
+                <td>Thriller</td>
             </tr>
             <tr>
                 <td>4</td>
-                <td>Chill</td>
+                <td>Romance</td>
             </tr>
             <tr>
                 <td>5</td>
-                <td>Sad</td>
+                <td>Horror</td>
             </tr>
         </tbody>
     </table>
 
-    <form action="process-moods.php" method="POST">
-        <label for="mood-id">ID:</label>
-        <input type="number" id="mood-id" name="mood-id" required>
+    <form action="process-genres.php" method="POST">
+        <label for="ID">ID:</label>
+        <input type="number" id="ID" name="ID" required>
         <br>
-        <label for="mood">Mood:</label>
-        <input type="text" id="mood" name="mood" required>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required>
         <br>
-        <button type="submit">Add Mood</button>
+        <button type="submit">Add Genre</button>
     </form>
 
 </body>

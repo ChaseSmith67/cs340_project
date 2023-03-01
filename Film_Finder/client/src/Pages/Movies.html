@@ -1,66 +1,247 @@
 <!DOCTYPE html>
 <html>
-    <head text-align: center>
-        <title>Welcome to the Movies Page</title>
-        <style>
-            table, th, td {
-              border: 1px solid black;
-              border-collapse: collapse;
-              text-align: center;
-              padding: 10px;
-            }
-            th {
-              background-color: #ccc;
-            }
-        </style>
-    </head>
-    <body>
-        <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Year</th>
-                <th>Age Rating</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>20123</td>
-                <td>John Wick</td>
-                <td>2014</td>
-                <td>Adult</td>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-              </tr>
-              <tr>
-                <td>21533</td>
-                <td>A Scanner Darkly</td>
-                <td>2006</td>
-                <td>Adult</td>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-              </tr>
-              <tr>
-                <td>21844</td>
-                <td>Zombieland</td>
-                <td>2009</td>
-                <td>Adult</td>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-              </tr>
-              <tr>
-                <td>22900</td>
-                <td>Shrek</td>
-                <td>2001</td>
-                <td>All Ages</td>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-              </tr>
-            </tbody>
-          </table>
-    </body>
-        
+
+<head text-align: center>
+  <title>Welcome to the Movies Page</title>
+  <style>
+    /* Style to make it look somewhat decent */
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #ccc;
+    }
+
+
+    form {
+      margin: auto;
+      width: 50%;
+      border: 3px solid #f1f1f1;
+      padding: 10px;
+    }
+
+    input[type=text],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul style="margin: 0 auto;">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Actors.html">Actors</a></li>
+      <li><a href="Moods.html">Moods</a></li>
+      <li><a href="Users.html">Users</a></li>
+    </ul>
+  </nav>
+
+  <table style="margin: 0 auto;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Age Rating</th>
+        <th>Movie_moods</th>
+        <th>Movie_actors</th>
+        <th>Movie_genres</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>20123</td>
+        <td>John Wick</td>
+        <td>2014</td>
+        <td>Adult</td>
+        <td>
+          <select name="mood">
+            <option value="1">Funny</option>
+            <option value="2">Dark</option>
+            <option value="3">Chill</option>
+            <option value="4">Sad</option>
+          </select>
+        </td>
+
+        <td>
+          <select name="Actors">
+            <option value="1071">Keanu Reeves</option>
+            <option value="1003">Woody Harrelson</option>
+            <option value="1016">Mike Myers</option>
+
+          </select>
+        </td>
+
+        <td>
+          <select name="Genres">
+            <option value="1">Comedy</option>
+            <option value="2">Science Fiction</option>
+            <option value="3">Thriller</option>
+            <option value="4">Romance</option>
+            <option value="5">Horror</option>
+
+          </select>
+        </td>
+        <td><button>Edit</button></td>
+        <td><button>Delete</button></td>
+      </tr>
+      <tr>
+        <td>21533</td>
+        <td>A Scanner Darkly</td>
+        <td>2006</td>
+        <td>Adult</td>
+        <td>
+          <select name="mood">
+            <option value="1">Funny</option>
+            <option value="2">Dark</option>
+            <option value="3">Chill</option>
+            <option value="4">Sad</option>
+          </select>
+        </td>
+
+        <td>
+          <select name="Actors">
+            <option value="1071">Keanu Reeves</option>
+            <option value="1003">Woody Harrelson</option>
+            <option value="1016">Mike Myers</option>
+
+          </select>
+        </td>
+
+        <td>
+          <select name="Genres">
+            <option value="1">Comedy</option>
+            <option value="2">Science Fiction</option>
+            <option value="3">Thriller</option>
+            <option value="4">Romance</option>
+            <option value="5">Horror</option>
+
+          </select>
+        </td>
+        <td><button>Edit</button></td>
+        <td><button>Delete</button></td>
+      </tr>
+      <tr>
+        <td>21844</td>
+        <td>Zombieland</td>
+        <td>2009</td>
+        <td>Adult</td>
+        <td>
+          <select name="mood">
+            <option value="1">Funny</option>
+            <option value="2">Dark</option>
+            <option value="3">Chill</option>
+            <option value="4">Sad</option>
+          </select>
+        </td>
+        <td>
+          <select name="Actors">
+            <option value="1071">Keanu Reeves</option>
+            <option value="1003">Woody Harrelson</option>
+            <option value="1016">Mike Myers</option>
+
+          </select>
+        </td>
+
+        <td>
+          <select name="Genres">
+            <option value="1">Comedy</option>
+            <option value="2">Science Fiction</option>
+            <option value="3">Thriller</option>
+            <option value="4">Romance</option>
+            <option value="5">Horror</option>
+
+          </select>
+        </td>
+        <td><button>Edit</button></td>
+        <td><button>Delete</button></td>
+      </tr>
+      <tr>
+        <td>22900</td>
+        <td>Shrek</td>
+        <td>2001</td>
+        <td>All Ages</td>
+        <td>
+          <select name="mood">
+            <option value="1">Funny</option>
+            <option value="2">Dark</option>
+            <option value="3">Chill</option>
+            <option value="4">Sad</option>
+          </select>
+        </td>
+        <td>
+          <select name="Actors">
+            <option value="1071">Keanu Reeves</option>
+            <option value="1003">Woody Harrelson</option>
+            <option value="1016">Mike Myers</option>
+
+          </select>
+        </td>
+
+        <td>
+          <select name="Genres">
+            <option value="1">Comedy</option>
+            <option value="2">Science Fiction</option>
+            <option value="3">Thriller</option>
+            <option value="4">Romance</option>
+            <option value="5">Horror</option>
+
+          </select>
+        </td>
+        <td><button>Edit</button></td>
+        <td><button>Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form method="POST">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id">
+    <br>
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title">
+    <br>
+
+    <label for="year">Year:</label>
+    <input type="text" id="year" name="year">
+    <br>
+
+    <label for="age_rating">Age Rating:</label>
+    <input type="text" id="age_rating" name="age_rating">
+    <br>
+
+    <label for="mood">Movie_moods:</label>
+    <input type="text" id="mood" name="mood">
+    <br>
+
+    <label for="actors">Movie_actors:</label>
+    <input type="text" id="actors" name="actors">
+    <br>
+
+    <label for="genres">Movie_genres:</label>
+    <input type="text" id="genres" name="genres">
+    <br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+
+
 </html>
