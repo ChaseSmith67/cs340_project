@@ -11,6 +11,8 @@
   "dependencies": {
     "express": "^4.18.2",
     "forever": "^4.0.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20",
     "use-effect": "^0.0.1",
     "usestate": "^1.1.3"
   }
